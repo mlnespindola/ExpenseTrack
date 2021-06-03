@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import './ExpenseForm.css';
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
     /*---Using One useState() for multiple events---*/
     /*const [userInput, setUserInput] = useState({
         enteredTitle:'',
@@ -56,7 +56,7 @@ const ExpenseForm = () => {
     const submitHandler = (event) => {
         event.preventDefault();
 
-        //object holding the input values
+        //object holding the input values - gathering data
         const expenseData = {
             title: enteredTitle,
             amount: enteredAmount,
@@ -64,6 +64,7 @@ const ExpenseForm = () => {
         };
 
         //clear the input (two-way binding)
+        props.onSaveData(expenseData);
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');

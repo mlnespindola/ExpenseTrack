@@ -10,9 +10,14 @@ const App = () => {
     {id:'ex4', title: 'macoia', date: new Date(), price: 125},
   ];
 
+  const addNewExpense = (enteredNewExpense) => {
+    console.log( 'In App.js');
+    console.log(enteredNewExpense);
+  }
+
   return (
     <div>
-      <NewExpense/>
+      <NewExpense onNewExpense={addNewExpense}/>
       <Expenses data={expense} />
     </div>
   );
