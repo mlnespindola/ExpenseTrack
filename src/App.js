@@ -1,18 +1,20 @@
+
+import { useState } from 'react';
 import Expenses from './components/Expenses/Expenses';
 import NewExpense from './components/NewExpense/NewExpense';
 
-const App = () => {
+const initialExpenses = [
+  {id:'ex1', title: 'ração do boris', date: new Date(), price: 30},
+  {id:'ex2', title: 'batatinha pringles', date: new Date(), price: 10},
+  {id:'ex3', title: 'alguel', date: new Date(), price: 1200},
+  {id:'ex4', title: 'macoia', date: new Date(), price: 125},
+];
 
-  const expense = [
-    {id:'ex1', title: 'ração do boris', date: new Date(), price: 30},
-    {id:'ex2', title: 'batatinha pringles', date: new Date(), price: 10},
-    {id:'ex3', title: 'alguel', date: new Date(), price: 1200},
-    {id:'ex4', title: 'macoia', date: new Date(), price: 125},
-  ];
+const App = () => {
+  const [expense, setExpense] = useState(initialExpenses);
 
   const addNewExpense = (enteredNewExpense) => {
-    console.log( 'In App.js');
-    console.log(enteredNewExpense);
+    setExpense((prevState) => {return [enteredNewExpense, ...prevState]});
   }
 
   return (
