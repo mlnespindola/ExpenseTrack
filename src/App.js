@@ -14,9 +14,10 @@ const App = () => {
   const [expense, setExpense] = useState(initialExpenses);
 
   const addNewExpense = (enteredNewExpense) => {
-    setExpense((prevState) => {return [enteredNewExpense, ...prevState]});
+    setExpense((prevState) => {return [...prevState, enteredNewExpense]});
+    console.log(enteredNewExpense);
   }
-
+  
   return (
     <div>
       <NewExpense onNewExpense={addNewExpense}/>
