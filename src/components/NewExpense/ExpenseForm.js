@@ -52,6 +52,11 @@ const ExpenseForm = (props) => {
         setEnteredDate(event.target.value);
     }
 
+    //CANCEL BTN ACTION 
+    const cancelExpenses = () => {
+        props.cancelBtnAction(false);
+    }
+
     //listening to the submited form
     const submitHandler = (event) => {
         event.preventDefault();
@@ -63,12 +68,17 @@ const ExpenseForm = (props) => {
             date: new Date(enteredDate),
         };
 
-        //clear the input (two-way binding)
+        // //clear the input (two-way binding)
+        
         props.onSaveData(expenseData);
-        setEnteredTitle('');
-        setEnteredAmount('');
-        setEnteredDate('');
+        // setEnteredTitle('');
+        // setEnteredAmount('');
+        // setEnteredDate('');
+        props.cancelBtnAction(false);
+
     };
+
+    
 
     return (
         <form onSubmit={submitHandler}>
@@ -88,6 +98,7 @@ const ExpenseForm = (props) => {
             </div>
             <div className='new-expense__actions'>
                 <button type='submit'>Add expense</button>
+                <button onClick={cancelExpenses}>Cancel</button>
             </div>
         </form>
     );
