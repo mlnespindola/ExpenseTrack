@@ -64,16 +64,11 @@ const ExpenseForm = (props) => {
         //object holding the input values - gathering data
         const expenseData = {
             title: enteredTitle,
-            price: enteredAmount,
+            price: +enteredAmount,
             date: new Date(enteredDate),
         };
 
-        // //clear the input (two-way binding)
-        
         props.onSaveData(expenseData);
-        // setEnteredTitle('');
-        // setEnteredAmount('');
-        // setEnteredDate('');
         props.cancelBtnAction(false);
 
     };
