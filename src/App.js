@@ -15,7 +15,6 @@ const App = () => {
 
   const addNewExpense = (enteredNewExpense) => {
     setExpense((prevState) => {return [...prevState, enteredNewExpense]});
-    console.log(enteredNewExpense);
   }
 
   return (

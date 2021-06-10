@@ -49,8 +49,9 @@ const ExpenseForm = (props) => {
     }
 
     const dateChangeHandler = (event) => {
-        setEnteredDate(event.target.value);
+        setEnteredDate(event.target.value + "T00:00:00");
     }
+    console.log(enteredDate);
 
     //CANCEL BTN ACTION 
     const cancelExpenses = () => {
@@ -67,7 +68,6 @@ const ExpenseForm = (props) => {
             price: +enteredAmount,
             date: new Date(enteredDate),
         };
-
         props.onSaveData(expenseData);
         props.cancelBtnAction(false);
 
